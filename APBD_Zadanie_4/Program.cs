@@ -1,6 +1,10 @@
 // This call WebApplication.CreateBuilder() creates an object that represents our application 
 // This variable allows our application to be configured before it will be excecuted
 // Builder pattern - design patter (classic design patterns of objective programming
+
+using APBD_Zadanie_4.repository;
+using APBD_Zadanie_4.service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -10,8 +14,12 @@ builder.Services.AddControllers();
 // This element is searching for our application and all the enpoints that we have defined
 // GET /api/students - resource + what we want to do with this resource => endpoint
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
 // This element allows me to add automatically generated documentation for my application
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IAnimalService, AnimalService>();
+builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 
 // This .Build(); method returns an application that is being configured according to what we have previously defined
 var app = builder.Build();
