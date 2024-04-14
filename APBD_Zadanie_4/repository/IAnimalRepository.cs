@@ -10,6 +10,8 @@ public interface IAnimalRepository
     public Animal GetAnimal(int id);
 
     public int AddAnimal(AnimalCreationDTO dto);
+
+    public int DeleteAnimal(int id);
     
     public int UpdateAnimal(int id);
 }
