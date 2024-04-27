@@ -1,17 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace APBD_Zadanie_4.controllers;
 
-namespace APBD_Zadanie_4.dto;
-
-public class AnimalCreationDTO
+public class AnimalDTO
 {
-    [Required]
-    public string name { get;}
+    public int id { get; }
+    public string name { get; }
     public string description { get; }
     public string category { get; }
     public string area { get; }
 
-    public AnimalCreationDTO(string name, string description, string category, string area)
+    public AnimalDTO(int id, string name, string description, string category, string area)
     {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
